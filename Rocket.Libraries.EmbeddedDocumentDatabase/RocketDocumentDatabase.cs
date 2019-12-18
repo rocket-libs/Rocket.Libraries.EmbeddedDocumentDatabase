@@ -44,6 +44,12 @@ namespace Rocket.Libraries.EmbeddedDocumentDatabase
             Data = initialData;
         }
 
+        public bool FieldExists(string key)
+        {
+            using var reader = new Reader();
+            return reader.FieldExists(key, locker);
+        }
+
         public ImmutableList<RocketDocumentDatabaseField> GetData()
         {
             lock (locker)

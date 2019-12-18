@@ -4,6 +4,8 @@ namespace Rocket.Libraries.EmbeddedDocumentDatabase
 {
     public interface IRocketDocumentDatabase
     {
+        bool FieldExists(string key);
+
         ImmutableList<RocketDocumentDatabaseField> GetData();
 
         RocketDocumentDatabaseField GetFieldByKey(string key);
