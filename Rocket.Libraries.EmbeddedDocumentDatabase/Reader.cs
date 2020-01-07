@@ -30,6 +30,19 @@ namespace Rocket.Libraries.EmbeddedDocumentDatabase
             }
         }
 
+        public TValue TryGetFieldValueByKey<TValue>(string key, object locker)
+        {
+            var targetFieldExists = FieldExists(key, locker);
+            if (targetFieldExists == false)
+            {
+                return default;
+            }
+            else
+            {
+                return GetFieldValueByKey<TValue>(key, locker);
+            }
+        }
+
         public TValue GetFieldValueByKey<TValue>(string key, object locker)
         {
             var formValueDescription = GetFieldByKey(key, locker);
@@ -39,7 +52,14 @@ namespace Rocket.Libraries.EmbeddedDocumentDatabase
             }
             else
             {
-                return ValueParser.Parse<TValue>(formValueDescription.Value);
+                if (string.IsNullOrEmpty(formValueDescription.Value))
+                {
+                    return default;
+                }
+                else
+                {
+                    return ValueParser.Parse<TValue>(formValueDescription.Value);
+                }
             }
         }
 

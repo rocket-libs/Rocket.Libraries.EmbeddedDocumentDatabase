@@ -16,6 +16,8 @@ namespace Rocket.Libraries.EmbeddedDocumentDatabase
 
         void SetData(ImmutableList<RocketDocumentDatabaseField> initialData);
 
+        TValue TryGetFieldValueByKey<TValue>(string key);
+
         void UpdateField(string fieldName, object value);
     }
 }

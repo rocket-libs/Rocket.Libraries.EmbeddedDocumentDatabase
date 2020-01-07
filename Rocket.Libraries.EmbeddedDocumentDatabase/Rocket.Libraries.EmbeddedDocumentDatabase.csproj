@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>Latest</LangVersion>
-    <Version>1.0.2-beta03</Version>
+    <Version>1.0.2</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/rocket-libs/Rocket.Libraries.EmbeddedDocumentDatabase</PackageProjectUrl>
     <Description>Light and thread-safe in-process and in-memory key-value store with simple helper methods for reading and writing data.</Description>

@@ -82,6 +82,12 @@ namespace Rocket.Libraries.EmbeddedDocumentDatabase
             return reader.GetFieldValueByKey<TValue>(key, locker);
         }
 
+        public TValue TryGetFieldValueByKey<TValue>(string key)
+        {
+            using var reader = new Reader();
+            return reader.TryGetFieldValueByKey<TValue>(key, locker);
+        }
+
         #region IDisposable Support
 
         private bool disposedValue = false; // To detect redundant calls
